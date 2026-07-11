@@ -33,9 +33,16 @@ export default function Hero() {
             <strong className="font-semibold text-accent-tx">pemapol@bkk</strong>:~$ whoami
           </p>
           <h1 className="font-display text-[clamp(34px,8vw,68px)] leading-[1.02] font-extrabold tracking-[-0.02em] text-ink wrap-break-word">
-            Pemapol
-            <br />
-            Sripratipbundit
+            {(() => {
+              const [first, ...rest] = pick(strings.hero.name, en).split(' ');
+              return (
+                <>
+                  {first}
+                  <br />
+                  {rest.join(' ')}
+                </>
+              );
+            })()}
           </h1>
           <h2 className="mt-4 text-[clamp(17px,3vw,21px)] font-medium text-ink-2">
             {pick(strings.hero.subtitle, en)}

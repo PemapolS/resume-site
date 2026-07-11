@@ -91,6 +91,7 @@ export interface ContactCard {
 interface Strings {
   nav: Record<'experience' | 'education' | 'projects' | 'skills' | 'contact', Bilingual>;
   hero: {
+    name: Bilingual;
     subtitle: Bilingual;
     intro: Bilingual;
     emailLabel: Bilingual;
@@ -118,13 +119,14 @@ export const strings: Strings = {
     contact: { en: 'Contact', th: 'ติดต่อ' },
   },
   hero: {
+    name: { en: 'Pemapol Sripratipbundit', th: 'ภีมพล ศรีประทีปบัณฑิต' },
     subtitle: {
       en: 'Information & Communication Engineering graduate — data engineering & cloud infrastructure',
       th: 'บัณฑิตวิศวกรรมสารสนเทศและการสื่อสาร — วิศวกรรมข้อมูลและโครงสร้างพื้นฐานคลาวด์',
     },
     intro: {
       en: 'Motivated, detail-oriented graduate from Chulalongkorn University with a strong academic record and a focus on computer programming and data engineering. Proficient in Python, Java, SQL, and data-visualization tools, with hands-on experience in UX/UI design and project management.',
-      th: 'วิศวกรรมบัณฑิตเกียรตินิยมอันดับหนึ่งจากจุฬาลงกรณ์มหาวิทยาลัย มีความสนใจด้านการเขียนโปรแกรมและวิศวกรรมข้อมูล (Data Engineering) และมีความเชี่ยวชาญด้าน Python, Java, SQL และเครื่องมือ Data Visualization พร้อมประสบการณ์ตรงด้านการออกแบบ UX/UI และการบริหารโครงการ (PM)',
+      th: 'วิศวกรรมบัณฑิตเกียรตินิยมอันดับหนึ่งจากจุฬาลงกรณ์มหาวิทยาลัย ที่มีความสนใจในการเขียนโปรแกรมและวิศวกรรมข้อมูล (Data Engineering) และมีความเชี่ยวชาญด้าน Python, Java, SQL และเครื่องมือ Data Visualization พร้อมประสบการณ์ตรงด้านการออกแบบ UX/UI และการบริหารโครงการ (PM)',
     },
     emailLabel: { en: 'email', th: 'แสดงอีเมล' },
     viewExperience: { en: 'View experience', th: 'ดูประสบการณ์' },
