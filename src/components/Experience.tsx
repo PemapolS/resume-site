@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { faBriefcase, faFilePdf, faAward } from '@fortawesome/free-solid-svg-icons';
-import { pick, useApp } from './AppContext';
+import { pick, formatDate, useApp } from './AppContext';
 import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
 import DetailsToggle from './DetailsToggle';
@@ -18,10 +18,10 @@ export default function Experience() {
             <Fragment key={item.id}>
               <div className="py-4 text-right max-[640px]:py-3.5">
                 <p className="font-mono text-[14px] font-semibold whitespace-nowrap text-ink max-[640px]:text-[12.5px]">
-                  {item.dateMain}
+                  {formatDate(item.dateMain, en)}
                 </p>
                 {item.dateSub && (
-                  <p className="font-mono text-[12px] text-ink-3 max-[640px]:text-[11px]">{item.dateSub}</p>
+                  <p className="font-mono text-[12px] text-ink-3 max-[640px]:text-[11px]">{formatDate(item.dateSub, en)}</p>
                 )}
               </div>
 

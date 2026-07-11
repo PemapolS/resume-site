@@ -1,5 +1,5 @@
 import { faFilePdf, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { pick, useApp } from './AppContext';
+import { pick, formatDate, useApp } from './AppContext';
 import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
 import DetailsToggle from './DetailsToggle';
@@ -16,7 +16,7 @@ function EduHead({ item }: { item: EducationItem }) {
         <p className="mt-0.75 text-[14px] text-ink-2">{pick(item.org, en)}</p>
       </div>
       <div className="flex shrink-0 flex-wrap items-center gap-2.5 max-[640px]:w-full">
-        <span className="font-mono text-[12px] text-ink-3">{item.dates}</span>
+        <span className="font-mono text-[12px] text-ink-3">{formatDate(item.dates, en)}</span>
         <span className="rounded-full border border-accent-line bg-accent-soft px-3.5 py-1.75 font-mono text-[13px] font-bold tracking-[0.06em] text-accent-tx">
           {pick(item.badge, en)}
         </span>
