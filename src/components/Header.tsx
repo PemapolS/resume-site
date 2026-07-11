@@ -62,9 +62,9 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
       <div className="relative mx-auto max-w-290 rounded-[18px] border border-line bg-nav shadow-soft backdrop-blur-[14px]">
         <nav className="flex items-center gap-4 px-4 py-2 max-[640px]:px-3.5">
           <a href="#about" className="flex items-center gap-2.5 no-underline">
-            <span className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-accent-soft text-[15px] text-accent-tx">
+            {/* <span className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-accent-soft text-[15px] text-accent-tx">
               <FontAwesomeIcon icon={faDesktop} />
-            </span>
+            </span> */}
             <span className="font-display text-[17px] font-bold tracking-[-0.01em] text-ink">Pemapol S.</span>
           </a>
 
