@@ -149,8 +149,8 @@ export const strings: Strings = {
   },
   modal: {
     openMail: { en: 'Open mail app', th: 'เปิดแอปอีเมล' },
-    copy: { en: 'Copy', th: 'Copy' },
-    copied: { en: 'Copied ✓', th: 'Copied ✓' },
+    copy: { en: 'Copy', th: 'คัดลอก' },
+    copied: { en: 'Copied ✓', th: 'คัดลอกแล้ว ✓' },
   },
   toggle: {
     // English-only in the source design.
