@@ -132,17 +132,63 @@ html.dark {
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Subtle engineering dot-grid, fixed behind all content. Kept low-contrast
-     via the theme-aware `--dot` token so it reads as texture, not noise. */
+  /* Subtle engineering dot-grid plus corner registration crosshairs — a
+     draftsman's alignment mark at each corner of the canvas. Fixed behind all
+     content and kept low-contrast via the theme-aware `--dot`/line tokens so it
+     reads as texture, not noise. */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px);
-    background-size: 22px 22px;
-    background-position: -1px -1px;
+    background-image:
+      /* TL crosshair */ linear-gradient(var(--line-strong), var(--line-strong)),
+      linear-gradient(var(--line-strong), var(--line-strong)),
+      /* TR crosshair */ linear-gradient(var(--line-strong), var(--line-strong)),
+      linear-gradient(var(--line-strong), var(--line-strong)),
+      /* BL crosshair */ linear-gradient(var(--line-strong), var(--line-strong)),
+      linear-gradient(var(--line-strong), var(--line-strong)),
+      /* BR crosshair */ linear-gradient(var(--line-strong), var(--line-strong)),
+      linear-gradient(var(--line-strong), var(--line-strong)),
+      /* dot grid */ radial-gradient(var(--dot) 1.2px, transparent 1.2px);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+    background-position:
+      left 20px top 27px, left 27px top 20px,
+      right 20px top 27px, right 27px top 20px,
+      left 20px bottom 27px, left 27px bottom 20px,
+      right 20px bottom 27px, right 27px bottom 20px,
+      -1px -1px;
+    background-size:
+      15px 1px, 1px 15px,
+      15px 1px, 1px 15px,
+      15px 1px, 1px 15px,
+      15px 1px, 1px 15px,
+      22px 22px;
+  }
+
+  /* Technical-drawing ruler frame: minor ticks every 22px (matching the dot
+     grid) and taller major ticks every 110px, hanging from the top and left
+     edges. Fixed + non-interactive so it frames the canvas like a draftsman's
+     scale without touching layout. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      /* top: major ticks */ repeating-linear-gradient(90deg, var(--line-strong) 0 1px, transparent 1px 110px),
+      /* top: minor ticks */ repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 22px),
+      /* left: major ticks */ repeating-linear-gradient(180deg, var(--line-strong) 0 1px, transparent 1px 110px),
+      /* left: minor ticks */ repeating-linear-gradient(180deg, var(--line) 0 1px, transparent 1px 22px);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-position: 0 0;
+    background-size:
+      110px 13px,
+      22px 7px,
+      13px 110px,
+      7px 22px;
   }
 
   /* Default link treatment from the design; overridden with `no-underline`
