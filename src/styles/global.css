@@ -190,7 +190,7 @@ html.dark {
 @utility hero-photo-bg-mobile {
   background-image: url('/Profile.jpg');
   background-size: cover;
-  background-position: center 22%;
+  background-position: center 42%;
 }
 
 @utility hero-fade-mobile {
