@@ -91,9 +91,11 @@ html.dark {
    `inline` keeps the var() reference so `.dark` overrides take effect at runtime.
    ============================================================ */
 @theme {
-  --font-display: 'Montserrat', sans-serif;
+  /* IBM Plex Sans Thai fallback: Montserrat has no Thai glyphs, so Thai text
+     rendered in the display font falls back to it per-glyph. */
+  --font-display: 'Montserrat', 'IBM Plex Sans Thai', sans-serif;
   --font-body: 'IBM Plex Sans Thai', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-mono: 'IBM Plex Mono', 'IBM Plex Sans Thai', monospace;
 }
 
 @theme inline {

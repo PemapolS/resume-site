@@ -1,9 +1,10 @@
 import { Fragment } from 'react';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { pick, useApp } from './AppContext';
 import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
 import DetailsToggle from './DetailsToggle';
+import CardLink from './CardLink';
 import { strings, experience } from '../data/resume';
 
 export default function Experience() {
@@ -52,7 +53,10 @@ export default function Experience() {
                           {item.tag}
                         </span>
                       </div>
-                      <DetailsToggle open={open} />
+                      <div className="flex flex-wrap items-center gap-4">
+                        <DetailsToggle open={open} />
+                        {item.link && <CardLink href={item.link} icon={faFilePdf} label="Internship Report" />}
+                      </div>
                       {open && (
                         <ul className="mt-1.5 mb-1 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">
                           {item.bullets.map((b, i) => (

@@ -1,5 +1,6 @@
 import { faCode, faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { pick, useApp } from './AppContext';
 import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
@@ -7,7 +8,12 @@ import DetailsToggle from './DetailsToggle';
 import CardLink from './CardLink';
 import { strings, projects } from '../data/resume';
 
-const isPdf = (href: string) => href.endsWith('.pdf');
+/** Icon + label for a project's external link, inferred from the URL. */
+function linkMeta(href: string): { icon: IconDefinition; label: string } {
+  if (href.endsWith('.pdf')) return { icon: faFilePdf, label: 'View PDF' };
+  if (href.includes('linkedin.com')) return { icon: faLinkedin, label: 'Conference Presentation' };
+  return { icon: faGithub, label: 'Source' };
+}
 
 export default function Projects() {
   const { en } = useApp();
@@ -34,13 +40,7 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-wrap items-center gap-4">
                   <DetailsToggle open={open} />
-                  {item.link && (
-                    <CardLink
-                      href={item.link}
-                      icon={isPdf(item.link) ? faFilePdf : faGithub}
-                      label={isPdf(item.link) ? 'View PDF' : 'Source'}
-                    />
-                  )}
+                  {item.link && <CardLink href={item.link} {...linkMeta(item.link)} />}
                 </div>
                 {open && (
                   <ul className="m-0 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">

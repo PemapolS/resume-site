@@ -23,6 +23,8 @@ export interface ExperienceItem {
   accent: boolean;
   defaultOpen: boolean;
   bullets: string[];
+  /** Optional supporting document: a PDF path under /public. */
+  link?: string;
 }
 
 export interface EducationItem {
@@ -34,6 +36,8 @@ export interface EducationItem {
   collapsible: boolean;
   defaultOpen?: boolean;
   details?: string[];
+  /** Optional report/document: a PDF path under /public. */
+  link?: string;
 }
 
 export interface ProjectItem {
@@ -115,7 +119,7 @@ export const strings: Strings = {
     },
     intro: {
       en: 'Motivated, detail-oriented graduate from Chulalongkorn University with a strong academic record and a focus on computer programming and data engineering. Proficient in Python, Java, SQL, and data-visualization tools, with hands-on experience in UX/UI design and project management.',
-      th: 'บัณฑิตจากจุฬาลงกรณ์มหาวิทยาลัย มีผลการเรียนดีเยี่ยม มุ่งเน้นด้านการเขียนโปรแกรมและวิศวกรรมข้อมูล เชี่ยวชาญ Python, Java, SQL และเครื่องมือ data visualization พร้อมประสบการณ์ตรงด้านการออกแบบ UX/UI และการบริหารโครงการ',
+      th: 'วิศวกรรมบัณฑิตจากจุฬาลงกรณ์มหาวิทยาลัย ที่มีผลการเรียนดี และมุ่งเน้นด้านการเขียนโปรแกรมและวิศวกรรมข้อมูล (Data Engineering) มีความเชี่ยวชาญด้าน Python, Java, SQL และเครื่องมือ Data Visualization พร้อมประสบการณ์ตรงด้านการออกแบบ UX/UI และการบริหารโครงการ',
     },
     emailLabel: { en: 'email', th: 'แสดงอีเมล' },
     viewExperience: { en: 'View experience', th: 'ดูประสบการณ์' },
@@ -132,8 +136,8 @@ export const strings: Strings = {
   },
   contact: {
     lead: {
-      en: 'Open to data engineering and cloud / infrastructure roles.',
-      th: 'เปิดรับโอกาสงานด้าน Data Engineering และ Cloud / Infrastructure',
+      en: 'Open to data engineering, cloud / infrastructure, and other tech-related roles.',
+      th: 'เปิดรับโอกาสงานด้าน Data Engineering, Cloud / Infrastructure และงานด้านเทคโนโลยีอื่น ๆ',
     },
     reveal: { en: 'Click to reveal', th: 'คลิกเพื่อแสดง' },
   },
@@ -183,6 +187,7 @@ export const experience: ExperienceItem[] = [
     tag: 'INTERNSHIP',
     accent: true,
     defaultOpen: true,
+    link: '/MD4_Redacted.pdf',
     bullets: [
       'Joined AIS Digital Talent | The Bloom, a 2-month work-experience program with the Network Quality Management (NQM) department.',
       'Built ETL pipelines and automated jobs on daily OOKLA network-performance data APIs.',
@@ -243,6 +248,7 @@ export const education: EducationItem[] = [
     badge: 'GPAX 6.25/7 · WAM 82.25',
     collapsible: true,
     defaultOpen: true,
+    link: '/Exchange_Report.pdf',
     details: [
       'Relevant coursework: Introduction to Artificial Intelligence, Cloud Computing Infrastructure, Systems Testing & Quality Management.',
       'Funded by the Destination Australia Cheung Kong Exchange Program Award, Spring 2025.',
@@ -291,11 +297,13 @@ export const projects: ProjectItem[] = [
     meta: 'JAN – APR 2025 · ICE CAPSTONE COURSE',
     title: 'Medication Reminders Application',
     role: 'Database Developer',
-    tags: ['UML', 'DBA', 'Cloud'],
+    tags: ['UML', 'DBA', 'Cloud', 'Research'],
     accent: false,
+    link: 'https://www.linkedin.com/posts/activity-7369696781770682371-jMgL',
     bullets: [
       'Designed schemas and created UML diagrams to model data structures and system workflows.',
       'Managed database administration and implemented cloud deployments to ensure scalability and reliability.',
+      'Written report: “Empowering Older Adults in Thailand Using AI-Augmented Design Thinking: A Case Study in User-Centered Medication Management,” published in the Journal of Communication and Innovation NIDA.',
     ],
   },
   {

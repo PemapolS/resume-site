@@ -1,8 +1,9 @@
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { pick, useApp } from './AppContext';
 import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
 import DetailsToggle from './DetailsToggle';
+import CardLink from './CardLink';
 import { strings, education } from '../data/resume';
 import type { EducationItem } from '../data/resume';
 
@@ -40,7 +41,10 @@ export default function Education() {
               {(open) => (
                 <>
                   <EduHead item={item} />
-                  <DetailsToggle open={open} />
+                  <div className="flex flex-wrap items-center gap-4">
+                    <DetailsToggle open={open} />
+                    {item.link && <CardLink href={item.link} icon={faFilePdf} label="Exchange Report" />}
+                  </div>
                   {open &&
                     item.details?.map((d, i) => (
                       <p key={i} className="mt-1.5 text-[14.5px] leading-[1.7] text-ink-2">
