@@ -190,7 +190,7 @@ export const experience: ExperienceItem[] = [
     id: 'exp1',
     dateMain: 'JUN–JUL',
     dateSub: '2025',
-    title: { en: 'Data Engineer Intern', th: 'นักศึกษาฝึกงานวิศวกรข้อมูล' },
+    title: { en: 'Data Engineer Intern', th: 'วิศวกรข้อมูลฝึกงาน' },
     org: {
       en: 'Advanced Info Service PLC (AIS) · Network Quality Management (NQM)',
       th: 'บริษัท แอดวานซ์ อินโฟร์ เซอร์วิส จำกัด (มหาชน) (AIS) · แผนกควบคุมคุณภาพเครือข่าย (NQM)',
@@ -219,7 +219,7 @@ export const experience: ExperienceItem[] = [
     id: 'exp2',
     dateMain: 'JAN–MAY',
     dateSub: '2025',
-    title: { en: 'Teaching Assistant', th: 'ผู้ช่วยสอน' },
+    title: { en: 'Teaching Assistant', th: 'ผู้ช่วยสอน (TA)' },
     org: {
       en: 'Faculty of Engineering, Chulalongkorn University',
       th: 'คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย',
