@@ -187,6 +187,22 @@ html.dark {
     linear-gradient(to bottom, transparent 45%, var(--bg) 90%);
 }
 
+@utility hero-photo-bg-mobile {
+  background-image: url('/Profile.jpg');
+  background-size: cover;
+  background-position: center 22%;
+}
+
+@utility hero-fade-mobile {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    color-mix(in oklab, var(--bg), transparent 35%) 68%,
+    var(--bg) 96%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

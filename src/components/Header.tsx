@@ -65,7 +65,7 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
             <span className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-accent-soft text-[15px] text-accent-tx">
               <FontAwesomeIcon icon={faDesktop} />
             </span>
-            <span className="font-display text-[17px] font-bold tracking-[-0.01em] text-ink">Pemapol</span>
+            <span className="font-display text-[17px] font-bold tracking-[-0.01em] text-ink">Pemapol S.</span>
           </a>
 
           <div className="flex flex-1 flex-wrap items-center justify-end gap-x-5.5 gap-y-1.5 max-[640px]:hidden">

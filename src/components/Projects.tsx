@@ -25,9 +25,13 @@ export default function Projects() {
           <CollapsibleCard key={item.id} className="flex flex-col items-start gap-2 px-5 py-4.5">
             {(open) => (
               <>
-                <p className="font-mono text-[11px] font-semibold tracking-[0.12em] text-ink-3">{item.meta}</p>
-                <h3 className="font-display text-[17px] font-bold leading-[1.3] text-ink">{item.title}</h3>
-                <p className="text-[14px] text-ink-2">{item.role}</p>
+                <p className="font-mono text-[11px] font-semibold tracking-[0.12em] text-ink-3">
+                  {pick(item.meta, en)}
+                </p>
+                <h3 className="font-display text-[17px] font-bold leading-[1.3] text-ink">
+                  {pick(item.title, en)}
+                </h3>
+                <p className="text-[14px] text-ink-2">{pick(item.role, en)}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {item.tags.map((tag) => (
                     <span
@@ -45,7 +49,7 @@ export default function Projects() {
                 {open && (
                   <ul className="m-0 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">
                     {item.bullets.map((b, i) => (
-                      <li key={i}>{b}</li>
+                      <li key={i}>{pick(b, en)}</li>
                     ))}
                   </ul>
                 )}

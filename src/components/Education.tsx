@@ -8,16 +8,17 @@ import { strings, education } from '../data/resume';
 import type { EducationItem } from '../data/resume';
 
 function EduHead({ item }: { item: EducationItem }) {
+  const { en } = useApp();
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1.5">
       <div className="min-w-0">
-        <h3 className="font-display text-[17px] font-bold text-ink">{item.title}</h3>
-        <p className="mt-0.75 text-[14px] text-ink-2">{item.org}</p>
+        <h3 className="font-display text-[17px] font-bold text-ink">{pick(item.title, en)}</h3>
+        <p className="mt-0.75 text-[14px] text-ink-2">{pick(item.org, en)}</p>
       </div>
       <div className="flex shrink-0 flex-wrap items-center gap-2.5 max-[640px]:w-full">
         <span className="font-mono text-[12px] text-ink-3">{item.dates}</span>
         <span className="rounded-full border border-accent-line bg-accent-soft px-3.5 py-1.75 font-mono text-[13px] font-bold tracking-[0.06em] text-accent-tx">
-          {item.badge}
+          {pick(item.badge, en)}
         </span>
       </div>
     </div>
@@ -48,7 +49,7 @@ export default function Education() {
                   {open &&
                     item.details?.map((d, i) => (
                       <p key={i} className="mt-1.5 text-[14.5px] leading-[1.7] text-ink-2">
-                        {d}
+                        {pick(d, en)}
                       </p>
                     ))}
                 </>

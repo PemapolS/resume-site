@@ -19,8 +19,10 @@ export default function Certifications() {
                 <span className="rounded-full bg-accent-soft px-2.75 py-1.25 font-mono text-[10px] font-semibold tracking-[0.14em] text-accent-tx">
                   {item.badge}
                 </span>
-                <h3 className="font-display text-[16.5px] font-bold leading-[1.3] text-ink">{item.title}</h3>
-                <p className="text-[13.5px] leading-[1.6] text-ink-2">{item.desc}</p>
+                <h3 className="font-display text-[16.5px] font-bold leading-[1.3] text-ink">
+                  {pick(item.title, en)}
+                </h3>
+                <p className="text-[13.5px] leading-[1.6] text-ink-2">{pick(item.desc, en)}</p>
                 <div className="flex flex-wrap items-center gap-4">
                   <DetailsToggle open={open} />
                   {item.link && (
@@ -30,7 +32,7 @@ export default function Certifications() {
                 {open && (
                   <ul className="m-0 list-disc space-y-1.5 pl-4.5 text-[14px] leading-[1.7] text-ink-2 marker:text-ink-3">
                     {item.bullets.map((b, i) => (
-                      <li key={i}>{b}</li>
+                      <li key={i}>{pick(b, en)}</li>
                     ))}
                   </ul>
                 )}

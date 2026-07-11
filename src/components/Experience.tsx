@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { faBriefcase, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faFilePdf, faAward } from '@fortawesome/free-solid-svg-icons';
 import { pick, useApp } from './AppContext';
 import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
@@ -41,26 +41,27 @@ export default function Experience() {
                       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                         <div className="min-w-0">
                           <h3 className="font-display text-[17px] font-bold leading-tight text-ink">
-                            {item.title}
+                            {pick(item.title, en)}
                           </h3>
-                          <p className="mt-0.5 text-[14px] text-ink-2">{item.org}</p>
+                          <p className="mt-0.5 text-[14px] text-ink-2">{pick(item.org, en)}</p>
                         </div>
                         <span
                           className={`shrink-0 rounded-full px-2.75 py-1.25 font-mono text-[10px] font-semibold tracking-[0.14em] ${
                             item.accent ? 'bg-accent-soft text-accent-tx' : 'bg-surface2 text-ink-2'
                           }`}
                         >
-                          {item.tag}
+                          {pick(item.tag, en)}
                         </span>
                       </div>
                       <div className="flex flex-wrap items-center gap-4">
                         <DetailsToggle open={open} />
-                        {item.link && <CardLink href={item.link} icon={faFilePdf} label="Internship Report" />}
+                        {item.link && <CardLink href={item.link} icon={faFilePdf} label="Report" />}
+                        {item.certLink && <CardLink href={item.certLink} icon={faAward} label="Certification" />}
                       </div>
                       {open && (
                         <ul className="mt-1.5 mb-1 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">
                           {item.bullets.map((b, i) => (
-                            <li key={i}>{b}</li>
+                            <li key={i}>{pick(b, en)}</li>
                           ))}
                         </ul>
                       )}

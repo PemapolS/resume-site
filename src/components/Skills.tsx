@@ -10,8 +10,10 @@ export default function Skills() {
     <Section id="skills" kicker="~/skills" icon={faScrewdriverWrench} accent="green" title={pick(strings.sections.skills, en)}>
       <div className="flex max-w-215 flex-col gap-4.5">
         {skills.map((group) => (
-          <div key={group.label} className="flex flex-col gap-2">
-            <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-ink-3">{group.label}</p>
+          <div key={group.label.en} className="flex flex-col gap-2">
+            <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-ink-3">
+              {pick(group.label, en)}
+            </p>
             <div className="flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <span

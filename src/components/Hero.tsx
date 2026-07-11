@@ -18,10 +18,16 @@ export default function Hero() {
         <>
           <div className="hero-photo-bg absolute inset-y-0 right-0 w-[min(760px,60vw)] max-[820px]:hidden" />
           <div className="hero-fade absolute inset-y-0 right-0 w-[min(760px,60vw)] max-[820px]:hidden" />
+
+          {/* Mobile: full-width photo at the top, fading into the background. */}
+          <div className="relative hidden h-[min(52vh,420px)] max-[820px]:block">
+            <div className="hero-photo-bg-mobile absolute inset-0" />
+            <div className="hero-fade-mobile absolute inset-0" />
+          </div>
         </>
       )}
 
-      <div className="relative z-1 mx-auto max-w-290 px-6 pt-37 pb-10 max-[900px]:px-5.5 max-[900px]:pt-33 max-[900px]:pb-9 max-[640px]:px-4.5 max-[640px]:pt-30 max-[640px]:pb-7">
+      <div className="relative z-1 mx-auto max-w-290 px-6 pt-37 pb-10 max-[900px]:px-5.5 max-[900px]:pt-33 max-[900px]:pb-9 max-[820px]:pt-6 max-[640px]:px-4.5 max-[640px]:pb-7">
         <div className="max-w-165">
           <p className="mb-3.5 font-mono text-[13px] font-medium text-ink-3">
             <strong className="font-semibold text-accent-tx">pemapol@bkk</strong>:~$ whoami
