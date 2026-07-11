@@ -405,7 +405,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'prj4',
-    meta: { en: 'SEP – NOV 2024 · NETCENTRIC ARCHITECTURE COURSE', th: 'ก.ย. – พ.ย. 2024 · วิชา Netcentric Architecture' },
+    meta: { en: 'SEP – NOV 2024 · NETCENTRIC ARCHITECTURE COURSE', th: 'ก.ย. – พ.ย. 2024 · วิชาสถาปัตยกรรมแบบโครงข่ายเป็นศูนย์กลาง' },
     title: { en: 'Battleship Game', th: 'เกม Battleship' },
     role: { en: 'Frontend Developer & UX/UI Designer', th: 'นักพัฒนา Frontend และนักออกแบบ UX/UI' },
     tags: ['React', 'Socket.IO', 'MongoDB'],
