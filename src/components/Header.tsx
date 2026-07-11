@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -12,6 +12,7 @@ import {
   faScrewdriverWrench,
   faSun,
   faXmark,
+  faShieldDog
 } from '@fortawesome/free-solid-svg-icons';
 import { pick } from './AppContext';
 import { strings } from '../data/resume';
@@ -38,7 +39,35 @@ const seg = (active: boolean) =>
 
 export default function Header({ en, isDark, onToggleLang, onToggleTheme }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  // When the top row runs out of room, fold the language + theme controls into the menu.
+  const [compact, setCompact] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const rowRef = useRef<HTMLElement>(null);
+  // Width at which we last collapsed; only re-expand once we've grown clearly past it.
+  const collapseWidth = useRef(0);
+
+  // Collapse when the row overflows, expand again when there's room to spare.
+  useLayoutEffect(() => {
+    const el = rowRef.current;
+    if (!el || compact) return;
+    if (el.scrollWidth > el.clientWidth + 1) {
+      collapseWidth.current = el.clientWidth;
+      setCompact(true);
+    }
+  }, [compact, en]);
+
+  useEffect(() => {
+    const el = rowRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => {
+      setCompact((prev) => {
+        if (!prev) return el.scrollWidth > el.clientWidth + 1 ? (collapseWidth.current = el.clientWidth, true) : false;
+        return el.clientWidth <= collapseWidth.current + 64;
+      });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   // Close the mobile menu on Escape or a click outside the header.
   useEffect(() => {
@@ -60,12 +89,12 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
   return (
     <header ref={headerRef} className="fixed top-3 right-4 left-4 z-50">
       <div className="relative mx-auto max-w-290 rounded-[18px] border border-line bg-nav shadow-soft backdrop-blur-[14px]">
-        <nav className="flex items-center gap-4 px-4 py-2 max-[640px]:px-3.5">
-          <a href="#about" className="flex items-center gap-2.5 no-underline">
-            {/* <span className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-accent-soft text-[15px] text-accent-tx">
-              <FontAwesomeIcon icon={faDesktop} />
-            </span> */}
-            <span className="font-display text-[17px] font-bold tracking-[-0.01em] text-ink">Pemapol S.</span>
+        <nav ref={rowRef} className="flex items-center gap-4 px-4 py-2 max-[640px]:px-3.5">
+          <a href="#about" className="flex shrink-0 items-center gap-2.5 no-underline">
+            <span className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-accent-soft text-[20px] text-accent-tx">
+              <FontAwesomeIcon icon={faShieldDog} />
+            </span>
+            <span className="font-display text-[17px] font-bold tracking-[-0.01em] whitespace-nowrap text-ink">Pemapol S.</span>
           </a>
 
           <div className="flex flex-1 flex-wrap items-center justify-end gap-x-5.5 gap-y-1.5 max-[640px]:hidden">
@@ -80,26 +109,30 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
             ))}
           </div>
 
-          <div className="flex items-center gap-2.5 max-[640px]:flex-1 max-[640px]:justify-end">
-            <button
-              type="button"
-              onClick={onToggleLang}
-              aria-label={en ? 'Switch to Thai' : 'Switch to English'}
-              className="inline-flex cursor-pointer rounded-full border border-line bg-surface2 p-0.75"
-            >
-              <span className={seg(en)}>EN</span>
-              <span className={seg(!en)}>TH</span>
-            </button>
+          <div className="flex shrink-0 items-center gap-2.5 max-[640px]:flex-1 max-[640px]:justify-end">
+            {!compact && (
+              <button
+                type="button"
+                onClick={onToggleLang}
+                aria-label={en ? 'Switch to Thai' : 'Switch to English'}
+                className="inline-flex cursor-pointer rounded-full border border-line bg-surface2 p-0.75"
+              >
+                <span className={seg(en)}>EN</span>
+                <span className={seg(!en)}>TH</span>
+              </button>
+            )}
 
-            <button
-              type="button"
-              onClick={onToggleTheme}
-              aria-label="Toggle theme"
-              aria-pressed={isDark}
-              className="flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-line bg-surface2 text-[14px] text-ink-2 hover:text-accent-tx"
-            >
-              <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
-            </button>
+            {!compact && (
+              <button
+                type="button"
+                onClick={onToggleTheme}
+                aria-label="Toggle theme"
+                aria-pressed={isDark}
+                className="flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-line bg-surface2 text-[14px] text-ink-2 hover:text-accent-tx"
+              >
+                <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
+              </button>
+            )}
 
             <button
               type="button"
@@ -130,6 +163,30 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
                 {pick(strings.nav[key], en)}
               </a>
             ))}
+
+            {compact && (
+            <div className="mt-1 flex items-center justify-between gap-3 border-t border-line px-3 pt-3">
+              <button
+                type="button"
+                onClick={onToggleLang}
+                aria-label={en ? 'Switch to Thai' : 'Switch to English'}
+                className="inline-flex cursor-pointer rounded-full border border-line bg-surface2 p-0.75"
+              >
+                <span className={seg(en)}>EN</span>
+                <span className={seg(!en)}>TH</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={onToggleTheme}
+                aria-label="Toggle theme"
+                aria-pressed={isDark}
+                className="flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-line bg-surface2 text-[14px] text-ink-2 hover:text-accent-tx"
+              >
+                <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
+              </button>
+            </div>
+            )}
           </div>
         )}
       </div>
