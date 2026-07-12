@@ -363,7 +363,7 @@ export const projects: ProjectItem[] = [
       th: 'สถาปัตยกรรมคลาวด์แบบ Multi-Tenant สำหรับระบบ SaaS HRM โรงแรม',
     },
     role: { en: 'DevOps & Tester', th: 'DevOps และผู้ทดสอบระบบ' },
-    tags: ['Kubernetes', 'AWS EC2', 'Jenkins', 'ArgoCD', 'k6'],
+    tags: ['Kubernetes', 'Amazon EC2', 'Jenkins', 'ArgoCD', 'k6'],
     accent: true,
     link: '/Multi-Tenant_Cloud_Arch_SaaS_HRM.pdf',
     repos: [
@@ -376,8 +376,8 @@ export const projects: ProjectItem[] = [
     ],
     bullets: [
       {
-        en: 'Led DevOps implementation for a Kubernetes cluster on AWS EC2s with namespace-per-tenant isolation, Traefik ingress, Jenkins CI/CD, and ArgoCD for automated deployments and canary rollouts targeting 10k concurrent users.',
-        th: 'พัฒนา DevOps สำหรับคลัสเตอร์ Kubernetes บน AWS EC2 โดยแยก namespace ต่อผู้เช่าแต่ละราย ใช้ Traefik ingress, Jenkins CI/CD และ ArgoCD สำหรับการดีพลอยอัตโนมัติและ canary rollout รองรับผู้ใช้พร้อมกัน 10,000 ราย',
+        en: 'Led DevOps implementation for a Kubernetes cluster on Amazon EC2s with namespace-per-tenant isolation, Traefik ingress, Jenkins CI/CD, and ArgoCD for automated deployments and canary rollouts targeting 10k concurrent users.',
+        th: 'พัฒนา DevOps สำหรับคลัสเตอร์ Kubernetes บน Amazon EC2 โดยแยก namespace ต่อผู้เช่าแต่ละราย ใช้ Traefik ingress, Jenkins CI/CD และ ArgoCD สำหรับการดีพลอยอัตโนมัติและ canary rollout รองรับผู้ใช้พร้อมกัน 10,000 ราย',
       },
       {
         en: 'Designed and executed k6 load tests simulating load spikes, validating horizontal pod autoscaling and cluster resilience.',
@@ -500,8 +500,8 @@ export const certifications: CertItem[] = [
         th: 'Amazon Web Services สำหรับการประมวลผล การจัดเก็บข้อมูล ฐานข้อมูล เครือข่าย การมอนิเตอร์ และความปลอดภัย',
       },
       {
-        en: 'AWS S3, EC2, Lambda, VPC, RDS, DynamoDB, CloudWatch, and more.',
-        th: 'AWS S3, EC2, Lambda, VPC, RDS, DynamoDB, CloudWatch และอื่น ๆ',
+        en: 'Amazon S3, EC2, Lambda, VPC, RDS, DynamoDB, CloudWatch, and more.',
+        th: 'Amazon S3, EC2, Lambda, VPC, RDS, DynamoDB, CloudWatch และอื่น ๆ',
       },
     ],
   },
