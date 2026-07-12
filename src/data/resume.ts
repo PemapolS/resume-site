@@ -53,6 +53,8 @@ export interface ProjectItem {
   bullets: Bilingual[];
   /** External resource: a repo URL or a PDF path under /public. */
   link?: string;
+  /** Named source repositories — label kept untranslated. */
+  repos?: { label: string; href: string }[];
 }
 
 export interface CertItem {
@@ -104,7 +106,8 @@ interface Strings {
   >;
   contact: { lead: Bilingual; reveal: Bilingual; location: Bilingual };
   modal: { openMail: Bilingual; copy: Bilingual; copied: Bilingual };
-  toggle: { details: string; hide: string };
+  toggle: { details: string; detailsSource: string; hide: string };
+  projects: { repos: Bilingual };
 }
 
 /** Obfuscated to keep the address out of raw markup, matching the source. */
@@ -157,7 +160,11 @@ export const strings: Strings = {
   toggle: {
     // English-only in the source design.
     details: '+ details',
+    detailsSource: '+ details and source code',
     hide: '− hide',
+  },
+  projects: {
+    repos: { en: 'Repositories', th: 'ที่เก็บซอร์สโค้ด' },
   },
 };
 
@@ -345,6 +352,14 @@ export const projects: ProjectItem[] = [
     tags: ['Kubernetes', 'AWS EC2', 'Jenkins', 'ArgoCD', 'k6'],
     accent: true,
     link: '/Multi-Tenant_Cloud_Arch_SaaS_HRM.pdf',
+    repos: [
+      { label: 'Deployment', href: 'https://github.com/mpsean/hummingbird-deployment' },
+      { label: 'Signin Frontend', href: 'https://github.com/mpsean/hummingbird-signin-frontend' },
+      { label: 'Signin API', href: 'https://github.com/mpsean/hummingbird-signin-api' },
+      { label: 'Frontend', href: 'https://github.com/mpsean/hummingbird-frontend' },
+      { label: 'API', href: 'https://github.com/mpsean/hummingbird-api' },
+      { label: 'Admin', href: 'https://github.com/mpsean/hummingbird-admin' },
+    ],
     bullets: [
       {
         en: 'Led DevOps implementation for a Kubernetes cluster on AWS EC2s with namespace-per-tenant isolation, Traefik ingress, Jenkins CI/CD, and ArgoCD for automated deployments and canary rollouts targeting 10k concurrent users.',
@@ -353,6 +368,32 @@ export const projects: ProjectItem[] = [
       {
         en: 'Designed and executed k6 load tests simulating load spikes, validating horizontal pod autoscaling and cluster resilience.',
         th: 'ออกแบบและดำเนินการทดสอบโหลดด้วย k6 จำลองสถานการณ์โหลดพุ่งสูง เพื่อตรวจสอบการปรับขนาด pod อัตโนมัติและความทนทานของคลัสเตอร์',
+      },
+    ],
+  },
+  {
+    id: 'prj5',
+    meta: { en: 'APR – MAY 2026 · DATA WAREHOUSE COURSE', th: 'เม.ย. – พ.ค. 2026 · วิชาคลังข้อมูล' },
+    title: {
+      en: 'Thailand Road Accident and Air Quality Data Analysis',
+      th: 'การวิเคราะห์ข้อมูลอุบัติเหตุบนท้องถนนและคุณภาพอากาศในประเทศไทย',
+    },
+    role: { en: 'Data Engineer and Analyst', th: 'วิศวกรข้อมูลและนักวิเคราะห์ข้อมูล' },
+    tags: ['ETL', 'Data Warehouse', 'SQL', 'AWS Glue', 'Amazon S3', 'Amazon QuickSight', 'Amazon Athena'],
+    accent: false,
+    link: '/DW_Project_Presentation.pdf',
+    bullets: [
+      {
+        en: 'Built an automated AWS Glue ETL pipeline that lands Thai road accident and PM-based air quality (2019–2024) from data.go.th into an S3 data lake, handling Thai encoding normalization, column standardization, and date formatting before crawling into the Glue Data Catalog.',
+        th: 'สร้าง ETL pipeline อัตโนมัติบน AWS Glue เพื่อนำเข้าข้อมูลอุบัติเหตุบนท้องถนนและคุณภาพอากาศ (ค่าฝุ่น PM) ของไทย ปี 2019–2024 จาก data.go.th เข้าสู่ S3 data lake พร้อมทำ encoding normalization ภาษาไทย จัดมาตรฐานคอลัมน์และรูปแบบวันที่ ก่อน crawl เข้าสู่ Glue Data Catalog',
+      },
+      {
+        en: 'Designed a star-schema data warehouse queried through Amazon Athena, with conformed dimensions and two fact tables — 111K accident events (transactional grain) and 113K station-day air quality readings (periodic snapshot).',
+        th: 'ออกแบบคลังข้อมูลแบบ star schema ที่สืบค้นผ่าน Amazon Athena ด้วย conformed dimensions และ fact table 2 ตาราง — เหตุการณ์อุบัติเหตุ 111K รายการ (transactional) และค่าคุณภาพอากาศรายสถานีต่อวัน 113K รายการ (periodic snapshot)',
+      },
+      {
+        en: 'Built interactive Amazon QuickSight dashboards that leverage the shared dimensions (bus matrix) to correlate PM10 levels with accident frequency, revealing that both peak together in the cool season across high-risk provinces.',
+        th: 'สร้างแดชบอร์ดแบบโต้ตอบบน Amazon QuickSight ที่ใช้ dimension ร่วมกัน (bus matrix) เพื่อวิเคราะห์ความสัมพันธ์ระหว่างค่าฝุ่น PM10 กับความถี่ของอุบัติเหตุ พบว่าทั้งสองค่าพุ่งสูงพร้อมกันในช่วงฤดูหนาวในจังหวัดที่มีความเสี่ยงสูง',
       },
     ],
   },
@@ -409,7 +450,7 @@ export const projects: ProjectItem[] = [
     id: 'prj4',
     meta: { en: 'SEP – NOV 2024 · NETCENTRIC ARCHITECTURE COURSE', th: 'ก.ย. – พ.ย. 2024 · วิชาสถาปัตยกรรมแบบโครงข่ายเป็นศูนย์กลาง' },
     title: { en: 'Battleship Game', th: 'เกม Battleship' },
-    role: { en: 'Frontend Developer & UX/UI Designer', th: 'นักพัฒนา Frontend และนักออกแบบ UX/UI' },
+    role: { en: 'Frond Developer & UX/UI Designer', th: 'นักพัฒนา Frontend และนักออกแบบ UX/UI' },
     tags: ['React', 'Socket.IO', 'MongoDB'],
     accent: false,
     link: 'https://github.com/mpsean/4ARM-BattleshipGame',

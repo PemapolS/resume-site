@@ -43,15 +43,29 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center gap-4">
-                  <DetailsToggle open={open} />
+                  <DetailsToggle open={open} label={item.repos ? strings.toggle.detailsSource : undefined} />
                   {item.link && <CardLink href={item.link} {...linkMeta(item.link)} />}
                 </div>
                 {open && (
-                  <ul className="m-0 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">
-                    {item.bullets.map((b, i) => (
-                      <li key={i}>{pick(b, en)}</li>
-                    ))}
-                  </ul>
+                  <>
+                    <ul className="m-0 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">
+                      {item.bullets.map((b, i) => (
+                        <li key={i}>{pick(b, en)}</li>
+                      ))}
+                    </ul>
+                    {item.repos && (
+                      <div className="w-full border-t border-line pt-2.5">
+                        <p className="mb-1.5 font-mono text-[11px] font-semibold tracking-[0.12em] text-ink-3">
+                          {pick(strings.projects.repos, en)}
+                        </p>
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                          {item.repos.map((repo) => (
+                            <CardLink key={repo.href} href={repo.href} icon={faGithub} label={repo.label} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
               </>
             )}
