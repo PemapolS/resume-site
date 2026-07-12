@@ -263,8 +263,8 @@ export const experience: ExperienceItem[] = [
     defaultOpen: true,
     bullets: [
       {
-        en: 'Registration lead for multiple hobby conventions with 1,700+ combined attendees annually and THB 300,000 raised for charity.',
-        th: 'หัวหน้าฝ่ายลงทะเบียนสำหรับงานคอนเวนชั่นงานอดิเรกหลายงานที่มีผู้เข้าร่วมรวมกว่า 1,700 คนต่อปี และระดมทุนเพื่อการกุศลได้กว่า 300,000 บาท',
+        en: 'Registration lead for multiple hobby conventions with around 2,000 combined attendees annually and THB 300,000 raised for animal conservation foundations in Thailand.',
+        th: 'หัวหน้าฝ่ายลงทะเบียนสำหรับงานคอนเวนชั่นงานอดิเรกหลายงานที่มีผู้เข้าร่วมรวมประมาณ 2,000 คนต่อปี และระดมทุนเพื่อมูลนิธิอนุรักษ์สัตว์ต่าง ๆ ในประเทศไทยได้กว่า 300,000 บาท',
       },
       {
         en: 'Planned physical systems and attendee flow; trained staff members during events.',
