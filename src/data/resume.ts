@@ -440,7 +440,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'prj3',
     meta: { en: 'JAN – APR 2025 · ICE CAPSTONE COURSE', th: 'ม.ค. – เม.ย. 2025 · วิชาแค๊ปสโตนทางวิศวกรรมสารสนเทศและการสื่อสาร' },
-    title: { en: 'Medication Reminders Application', th: 'แอปพลิเคชันแจ้งเตือนการทานยา' },
+    title: { en: 'Medication Management and Reminder Application', th: 'แอปพลิเคชันจัดการและแจ้งเตือนการทานยา' },
     role: { en: 'Database Developer', th: 'นักพัฒนาฐานข้อมูล' },
     tags: ['UML', 'DBA', 'Cloud', 'Research'],
     accent: false,
