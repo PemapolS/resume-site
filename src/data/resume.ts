@@ -68,6 +68,19 @@ export interface CertItem {
   link?: string;
 }
 
+export interface TestScoreItem {
+  id: string;
+  title: Bilingual;
+  /** Headline score, e.g. "8.0". */
+  score: string;
+  /** Scale suffix shown after the score, e.g. "/ 9.0". */
+  scale: string;
+  /** When the test was taken. */
+  date: Bilingual;
+  /** Optional sub-score breakdown. */
+  breakdown?: { label: Bilingual; value: string }[];
+}
+
 export interface SkillGroup {
   label: Bilingual;
   /** Skill names — kept untranslated. */
@@ -101,7 +114,7 @@ interface Strings {
     getInTouch: Bilingual;
   };
   sections: Record<
-    'experience' | 'education' | 'projects' | 'certifications' | 'skills' | 'languages' | 'contact',
+    'experience' | 'education' | 'projects' | 'certifications' | 'testScores' | 'skills' | 'languages' | 'contact',
     Bilingual
   >;
   contact: { lead: Bilingual; reveal: Bilingual; location: Bilingual };
@@ -140,6 +153,7 @@ export const strings: Strings = {
     education: { en: 'Education', th: 'การศึกษา' },
     projects: { en: 'Projects', th: 'โปรเจกต์' },
     certifications: { en: 'Certifications', th: 'ประกาศนียบัตร' },
+    testScores: { en: 'Test Scores', th: 'คะแนนสอบ' },
     skills: { en: 'Skills & Abilities', th: 'ทักษะและความสามารถ' },
     languages: { en: 'Languages', th: 'ภาษา' },
     contact: { en: 'Get in touch', th: 'ติดต่อ' },
@@ -537,6 +551,34 @@ export const certifications: CertItem[] = [
         th: 'การทำความสะอาดข้อมูล การวิเคราะห์ การทำ visualization, SQL, การเขียนโปรแกรม R, Tableau',
       },
     ],
+  },
+];
+
+export const testScores: TestScoreItem[] = [
+  {
+    id: 'test1',
+    title: { en: 'IELTS Academic', th: 'IELTS Academic' },
+    score: '8.0',
+    scale: '/ 9.0',
+    date: { en: 'Taken 25 Jan 2025', th: 'สอบเมื่อ 25 ม.ค. 2025' },
+  },
+  {
+    id: 'test2',
+    title: { en: 'SAT', th: 'SAT' },
+    score: '1440',
+    scale: '/ 1600',
+    date: { en: 'Taken 13 Mar 2021', th: 'สอบเมื่อ 13 มี.ค. 2021' },
+    breakdown: [
+      { label: { en: 'Evidence-Based Reading & Writing', th: 'การอ่านและการเขียนภาษาอังกฤษ' }, value: '650' },
+      { label: { en: 'Math', th: 'คณิตศาสตร์' }, value: '790' },
+    ],
+  },
+  {
+    id: 'test3',
+    title: { en: 'SAT Subject Test: Math Level 2', th: 'SAT Subject Test: Math Level 2' },
+    score: '800',
+    scale: '/ 800',
+    date: { en: 'Taken 5 Jun 2021', th: 'สอบเมื่อ 5 มิ.ย. 2021' },
   },
 ];
 

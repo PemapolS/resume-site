@@ -9,6 +9,7 @@ import Experience from './Experience';
 import Education from './Education';
 import Projects from './Projects';
 import Certifications from './Certifications';
+import TestScores from './TestScores';
 import Skills from './Skills';
 import Languages from './Languages';
 import Contact from './Contact';
@@ -91,8 +92,9 @@ export default function Portfolio() {
         <Education />
         <Projects />
         <Certifications />
-        <Skills />
         <Languages />
+        <TestScores />
+        <Skills />
         <Contact />
         {emailOpen && (
           <EmailModal email={EMAIL} copied={copied} onClose={closeEmail} onCopy={copyEmail} />

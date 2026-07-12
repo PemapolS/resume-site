@@ -44,12 +44,6 @@ export default function Contact() {
             <p className={VALUE}>{card.value}</p>
           </a>
         ))}
-
-        <div className={CARD_BASE}>
-          <CardIcon icon={faLocationDot} />
-          <p className={LABEL}>LOCATION</p>
-          <p className={VALUE}>{pick(strings.contact.location, en)}</p>
-        </div>
       </div>
     </Section>
   );
