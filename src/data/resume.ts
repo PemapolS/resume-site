@@ -483,7 +483,7 @@ export const projects: ProjectItem[] = [
     id: 'prj6',
     meta: { en: 'NOV – DEC 2023 · ADVANCED COMPUTER PROGRAMMING COURSE', th: 'พ.ย. – ธ.ค. 2023 · วิชาการเขียนโปรแกรมคอมพิวเตอร์ขั้นสูง' },
     title: { en: 'COVID-19 Vaccination Rate Lookup and Chart', th: 'ระบบค้นหาและแสดงแผนภูมิอัตราการฉีดวัคซีนโควิด-19' },
-    role: { en: 'Developer', th: 'นักพัฒนา' },
+    role: { en: 'Developer', th: 'นักพัฒนาโปรแกรม' },
     tags: ['HTML', 'CSS', 'JavaScript'],
     accent: false,
     bullets: [
@@ -499,7 +499,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'prj7',
-    meta: { en: 'MAR – APR 2023 · EXPLORING ENGINEERING WORLD (DATA SCIENCE)', th: 'มี.ค. – เม.ย. 2023 · วิชาสำรวจโลกวิศวกรรม (สาขาวิทยาการข้อมูล)' },
+    meta: { en: 'MAR – APR 2023 · EXPLORING ENGINEERING WORLD (DATA SCIENCE CLUSTER)', th: 'มี.ค. – เม.ย. 2023 · วิชาท่องโลกวิศวกรรม (สาขาวิทยาการข้อมูล)' },
     title: { en: 'OneThai, a Thailand Tourism Information App', th: 'OneThai แอปข้อมูลการท่องเที่ยวประเทศไทย' },
     role: { en: 'UX/UI Designer', th: 'นักออกแบบ UX/UI' },
     tags: ['Figma', 'Tableau', 'UX/UI'],
