@@ -514,7 +514,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'prj7',
-    meta: { en: 'MAR – APR 2023 · EXPLORING ENGINEERING WORLD (DATA SCIENCE CLUSTER)', th: 'มี.ค. – เม.ย. 2023 · วิชาท่องโลกวิศวกรรม (สาขาวิทยาการข้อมูล)' },
+    meta: { en: 'MAR – APR 2023 · EXPLORING ENGINEERING WORLD COURSE (DATA SCIENCE CLUSTER)', th: 'มี.ค. – เม.ย. 2023 · วิชาท่องโลกวิศวกรรม (สาขาวิทยาการข้อมูล)' },
     title: { en: 'OneThai, a Thailand Tourism Information App', th: 'OneThai แอปข้อมูลการท่องเที่ยวประเทศไทย' },
     role: { en: 'UX/UI Designer', th: 'นักออกแบบ UX/UI' },
     tags: ['Figma', 'Tableau', 'UX/UI'],
