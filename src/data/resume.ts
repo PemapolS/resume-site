@@ -42,6 +42,17 @@ export interface EducationItem {
   link?: string;
 }
 
+/** Icon key for a project link; mapped to a Font Awesome icon in Projects.tsx. */
+export type LinkIcon = 'pdf' | 'github' | 'linkedin' | 'figma';
+
+export interface ProjectLink {
+  /** A repo/prototype URL or a PDF path under /public. */
+  href: string;
+  /** Link label — kept untranslated. */
+  label: string;
+  icon: LinkIcon;
+}
+
 export interface ProjectItem {
   id: string;
   meta: Bilingual;
@@ -51,8 +62,8 @@ export interface ProjectItem {
   tags: string[];
   accent: boolean;
   bullets: Bilingual[];
-  /** External resource: a repo URL or a PDF path under /public. */
-  link?: string;
+  /** External resource, with its own icon and label. */
+  link?: ProjectLink;
   /** Named source repositories — label kept untranslated. */
   repos?: { label: string; href: string }[];
 }
@@ -365,7 +376,7 @@ export const projects: ProjectItem[] = [
     role: { en: 'DevOps & Tester', th: 'DevOps และผู้ทดสอบระบบ' },
     tags: ['Kubernetes', 'Amazon EC2', 'Jenkins', 'ArgoCD', 'k6'],
     accent: true,
-    link: '/Multi-Tenant_Cloud_Arch_SaaS_HRM.pdf',
+    link: { href: '/Multi-Tenant_Cloud_Arch_SaaS_HRM.pdf', label: 'Final Report', icon: 'pdf' },
     repos: [
       { label: 'Deployment', href: 'https://github.com/mpsean/hummingbird-deployment' },
       { label: 'Signin Frontend', href: 'https://github.com/mpsean/hummingbird-signin-frontend' },
@@ -395,7 +406,7 @@ export const projects: ProjectItem[] = [
     role: { en: 'Data Engineer and Analyst', th: 'วิศวกรข้อมูลและนักวิเคราะห์ข้อมูล' },
     tags: ['ETL', 'Data Warehouse', 'SQL', 'AWS Glue', 'Amazon S3', 'Amazon QuickSight', 'Amazon Athena'],
     accent: false,
-    link: '/DW_Project_Presentation.pdf',
+    link: { href: '/DW_Project_Presentation.pdf', label: 'Presentation', icon: 'pdf' },
     bullets: [
       {
         en: 'Built an automated AWS Glue ETL pipeline that lands Thai road accident and PM-based air quality (2019–2024) from Open Government Data of Thailand (data.go.th) into an S3 data lake, handling Thai encoding normalization, column standardization, and date formatting before crawling into the Glue Data Catalog.',
@@ -421,7 +432,7 @@ export const projects: ProjectItem[] = [
     role: { en: 'Team Member', th: 'สมาชิกทีม' },
     tags: ['Keras', 'LSTM', 'GRU'],
     accent: false,
-    link: '/41040_AT2_Project.pdf',
+    link: { href: '/41040_AT2_Project.pdf', label: 'Report', icon: 'pdf' },
     bullets: [
       {
         en: 'Utilized recurrent neural network techniques such as SimpleRNN, LSTM, and GRU from the Keras library.',
@@ -444,7 +455,11 @@ export const projects: ProjectItem[] = [
     role: { en: 'Database Developer', th: 'นักพัฒนาฐานข้อมูล' },
     tags: ['UML', 'DBA', 'Cloud', 'Research'],
     accent: false,
-    link: 'https://www.linkedin.com/posts/activity-7369696781770682371-jMgL',
+    link: {
+      href: 'https://www.linkedin.com/posts/activity-7369696781770682371-jMgL',
+      label: 'Conference Presentation',
+      icon: 'linkedin',
+    },
     bullets: [
       {
         en: 'Designed schemas and created UML diagrams to model data structures and system workflows.',
@@ -467,7 +482,7 @@ export const projects: ProjectItem[] = [
     role: { en: 'Frond Developer & UX/UI Designer', th: 'นักพัฒนา Frontend และนักออกแบบ UX/UI' },
     tags: ['React', 'Socket.IO', 'MongoDB'],
     accent: false,
-    link: 'https://github.com/mpsean/4ARM-BattleshipGame',
+    link: { href: 'https://github.com/mpsean/4ARM-BattleshipGame', label: 'Source', icon: 'github' },
     bullets: [
       {
         en: 'Developed a multiplayer online game based on the Battleship board game with player authentication and customization options.',
@@ -504,7 +519,7 @@ export const projects: ProjectItem[] = [
     role: { en: 'UX/UI Designer', th: 'นักออกแบบ UX/UI' },
     tags: ['Figma', 'Tableau', 'UX/UI'],
     accent: false,
-    link: 'https://www.figma.com/proto/94vh8SNWcj7PkNHbzTtWYq/EEW',
+    link: { href: 'https://www.figma.com/proto/94vh8SNWcj7PkNHbzTtWYq/EEW', label: 'Prototype', icon: 'figma' },
     bullets: [
       {
         en: 'Designed and wireframed a prototype for a conceptual app, utilizing Figma to create user interfaces, workflows, and a visually engaging user experience.',

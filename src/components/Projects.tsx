@@ -6,15 +6,15 @@ import Section from './Section';
 import CollapsibleCard from './CollapsibleCard';
 import DetailsToggle from './DetailsToggle';
 import CardLink from './CardLink';
-import { strings, projects } from '../data/resume';
+import { strings, projects, type LinkIcon } from '../data/resume';
 
-/** Icon + label for a project's external link, inferred from the URL. */
-function linkMeta(href: string): { icon: IconDefinition; label: string } {
-  if (href.endsWith('.pdf')) return { icon: faFilePdf, label: 'View PDF' };
-  if (href.includes('linkedin.com')) return { icon: faLinkedin, label: 'Conference Presentation' };
-  if (href.includes('figma.com')) return { icon: faFigma, label: 'Prototype' };
-  return { icon: faGithub, label: 'Source' };
-}
+/** Maps a project link's icon key to its Font Awesome icon. */
+const LINK_ICONS: Record<LinkIcon, IconDefinition> = {
+  pdf: faFilePdf,
+  github: faGithub,
+  linkedin: faLinkedin,
+  figma: faFigma,
+};
 
 export default function Projects() {
   const { en } = useApp();
@@ -45,7 +45,9 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-wrap items-center gap-4">
                   <DetailsToggle open={open} label={item.repos ? strings.toggle.detailsSource : undefined} />
-                  {item.link && <CardLink href={item.link} {...linkMeta(item.link)} />}
+                  {item.link && (
+                    <CardLink href={item.link.href} icon={LINK_ICONS[item.link.icon]} label={item.link.label} />
+                  )}
                 </div>
                 {open && (
                   <>
