@@ -1,5 +1,5 @@
 import { faCode, faFilePdf } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faFigma } from '@fortawesome/free-brands-svg-icons';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { pick, useApp } from './AppContext';
 import Section from './Section';
@@ -12,6 +12,7 @@ import { strings, projects } from '../data/resume';
 function linkMeta(href: string): { icon: IconDefinition; label: string } {
   if (href.endsWith('.pdf')) return { icon: faFilePdf, label: 'View PDF' };
   if (href.includes('linkedin.com')) return { icon: faLinkedin, label: 'Conference Presentation' };
+  if (href.includes('figma.com')) return { icon: faFigma, label: 'Prototype' };
   return { icon: faGithub, label: 'Source' };
 }
 

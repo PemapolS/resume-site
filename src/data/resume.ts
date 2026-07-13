@@ -305,7 +305,7 @@ export const education: EducationItem[] = [
     },
     org: {
       en: 'International School of Engineering, Chulalongkorn University',
-      th: 'International School of Engineering จุฬาลงกรณ์มหาวิทยาลัย',
+      th: 'International School of Engineering (ISE) จุฬาลงกรณ์มหาวิทยาลัย',
     },
     dates: '2022–2026',
     badge: { en: 'GPAX 3.61 · FIRST CLASS HONORS', th: 'GPAX 3.61 · เกียรตินิยมอันดับหนึ่ง' },
@@ -476,6 +476,43 @@ export const projects: ProjectItem[] = [
       {
         en: 'Utilized Tailwind CSS, React, Vite, Node.js, Socket.IO, Express.js, and MongoDB.',
         th: 'ใช้ Tailwind CSS, React, Vite, Node.js, Socket.IO, Express.js และ MongoDB',
+      },
+    ],
+  },
+  {
+    id: 'prj6',
+    meta: { en: 'NOV – DEC 2023 · ADVANCED COMPUTER PROGRAMMING COURSE', th: 'พ.ย. – ธ.ค. 2023 · วิชาการเขียนโปรแกรมคอมพิวเตอร์ขั้นสูง' },
+    title: { en: 'COVID-19 Vaccination Rate Lookup and Chart', th: 'ระบบค้นหาและแสดงแผนภูมิอัตราการฉีดวัคซีนโควิด-19' },
+    role: { en: 'Developer', th: 'นักพัฒนา' },
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    accent: false,
+    bullets: [
+      {
+        en: 'Developed a webpage that fetches COVID-19 vaccination rate data from each country from an “Our World in Data” public API and displays the information in a visualized chart.',
+        th: 'พัฒนาเว็บเพจที่ดึงข้อมูลอัตราการฉีดวัคซีนโควิด-19 ของแต่ละประเทศจาก public API ของ “Our World in Data” และแสดงข้อมูลในรูปแบบแผนภูมิ',
+      },
+      {
+        en: 'Utilized HTML, CSS, and JavaScript.',
+        th: 'ใช้ HTML, CSS และ JavaScript',
+      },
+    ],
+  },
+  {
+    id: 'prj7',
+    meta: { en: 'MAR – APR 2023 · EXPLORING ENGINEERING WORLD (DATA SCIENCE)', th: 'มี.ค. – เม.ย. 2023 · วิชาสำรวจโลกวิศวกรรม (สาขาวิทยาการข้อมูล)' },
+    title: { en: 'OneThai, a Thailand Tourism Information App', th: 'OneThai แอปข้อมูลการท่องเที่ยวประเทศไทย' },
+    role: { en: 'UX/UI Designer', th: 'นักออกแบบ UX/UI' },
+    tags: ['Figma', 'Tableau', 'UX/UI'],
+    accent: false,
+    link: 'https://www.figma.com/proto/94vh8SNWcj7PkNHbzTtWYq/EEW',
+    bullets: [
+      {
+        en: 'Designed and wireframed a prototype for a conceptual app, utilizing Figma to create user interfaces, workflows, and a visually engaging user experience.',
+        th: 'ออกแบบและทำ wireframe ต้นแบบสำหรับแอปสมมติ โดยใช้ Figma สร้างส่วนติดต่อผู้ใช้ ขั้นตอนการทำงาน และประสบการณ์ผู้ใช้ที่ดึงดูดสายตา',
+      },
+      {
+        en: 'Conducted research on target audiences from open-source data and analyzed Thailand tourism trends impacted by COVID-19 using Tableau to inform design decisions, ensuring the app’s features aligned with emerging user needs and preferences.',
+        th: 'ทำวิจัยกลุ่มเป้าหมายจากข้อมูล open-source และวิเคราะห์แนวโน้มการท่องเที่ยวไทยที่ได้รับผลกระทบจากโควิด-19 ด้วย Tableau เพื่อประกอบการตัดสินใจด้านการออกแบบ ให้ฟีเจอร์ของแอปสอดคล้องกับความต้องการและความชอบของผู้ใช้ที่กำลังเปลี่ยนแปลง',
       },
     ],
   },
