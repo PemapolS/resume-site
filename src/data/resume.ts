@@ -398,8 +398,8 @@ export const projects: ProjectItem[] = [
     link: '/DW_Project_Presentation.pdf',
     bullets: [
       {
-        en: 'Built an automated AWS Glue ETL pipeline that lands Thai road accident and PM-based air quality (2019–2024) from data.go.th into an S3 data lake, handling Thai encoding normalization, column standardization, and date formatting before crawling into the Glue Data Catalog.',
-        th: 'สร้าง ETL pipeline อัตโนมัติบน AWS Glue เพื่อนำเข้าข้อมูลอุบัติเหตุบนท้องถนนและคุณภาพอากาศ (ค่าฝุ่น PM) ของไทย ปี 2019–2024 จาก data.go.th เข้าสู่ S3 data lake พร้อมทำ encoding normalization ภาษาไทย จัดมาตรฐานคอลัมน์และรูปแบบวันที่ ก่อน crawl เข้าสู่ Glue Data Catalog',
+        en: 'Built an automated AWS Glue ETL pipeline that lands Thai road accident and PM-based air quality (2019–2024) from Open Government Data of Thailand (data.go.th) into an S3 data lake, handling Thai encoding normalization, column standardization, and date formatting before crawling into the Glue Data Catalog.',
+        th: 'สร้าง ETL pipeline อัตโนมัติบน AWS Glue เพื่อนำเข้าข้อมูลอุบัติเหตุบนท้องถนนและคุณภาพอากาศ (ค่าฝุ่น PM) ของไทย ปี 2019–2024 จากศูนย์กลางข้อมูลเปิดภาครัฐ (data.go.th) เข้าสู่ S3 data lake พร้อมทำ encoding normalization ภาษาไทย จัดมาตรฐานคอลัมน์และรูปแบบวันที่ ก่อน crawl เข้าสู่ Glue Data Catalog',
       },
       {
         en: 'Designed a star-schema data warehouse queried through Amazon Athena, with conformed dimensions and two fact tables — 111K accident events (transactional grain) and 113K station-day air quality readings (periodic snapshot).',
