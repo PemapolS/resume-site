@@ -41,6 +41,8 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
   const [menuOpen, setMenuOpen] = useState(false);
   // When the top row runs out of room, fold the language + theme controls into the menu.
   const [compact, setCompact] = useState(false);
+  // Shrink the bar once the page is scrolled away from the top (text sizes stay the same).
+  const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const rowRef = useRef<HTMLElement>(null);
   // Width at which we last collapsed; only re-expand once we've grown clearly past it.
@@ -69,6 +71,14 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
     return () => ro.disconnect();
   }, []);
 
+  // Track scroll position so the bar can shrink once the user moves down the page.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   // Close the mobile menu on Escape or a click outside the header.
   useEffect(() => {
     if (!menuOpen) return;
@@ -88,10 +98,23 @@ export default function Header({ en, isDark, onToggleLang, onToggleTheme }: Head
 
   return (
     <header ref={headerRef} className="fixed top-3 right-4 left-4 z-50">
-      <div className="relative mx-auto max-w-290 rounded-[18px] border border-line bg-nav shadow-soft backdrop-blur-[14px]">
-        <nav ref={rowRef} className="flex items-center gap-4 px-4 py-2 max-[640px]:px-3.5">
+      <div
+        className={`relative mx-auto rounded-[18px] border border-line bg-nav shadow-soft backdrop-blur-[14px] transition-[max-width] duration-200 ease-out ${
+          scrolled ? 'max-w-250' : 'max-w-290'
+        }`}
+      >
+        <nav
+          ref={rowRef}
+          className={`flex items-center gap-4 px-4 transition-[padding] duration-200 ease-out max-[640px]:px-3.5 ${
+            scrolled ? 'py-1' : 'py-2'
+          }`}
+        >
           <a href="#about" className="flex shrink-0 items-center gap-2.5 no-underline">
-            <span className="flex h-8.5 w-8.5 items-center justify-center rounded-[10px] bg-accent-soft text-[20px] text-accent-tx">
+            <span
+              className={`flex items-center justify-center rounded-[10px] bg-accent-soft text-[20px] text-accent-tx transition-[width,height] duration-200 ease-out ${
+                scrolled ? 'h-7.5 w-7.5' : 'h-8.5 w-8.5'
+              }`}
+            >
               <FontAwesomeIcon icon={faShieldDog} />
             </span>
             <span className="font-display text-[17px] font-bold tracking-[-0.01em] whitespace-nowrap text-ink">Pemapol S.</span>
