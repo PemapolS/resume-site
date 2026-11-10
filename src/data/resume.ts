@@ -148,12 +148,12 @@ export const strings: Strings = {
   hero: {
     name: { en: 'Pemapol Sripratipbundit', th: 'ภีมพล ศรีประทีปบัณฑิต' },
     subtitle: {
-      en: 'Information & Communication Engineering graduate — data engineering & cloud infrastructure',
-      th: 'บัณฑิตวิศวกรรมสารสนเทศและการสื่อสาร — วิศวกรรมข้อมูลและโครงสร้างพื้นฐานคลาวด์',
+      en: 'Data Engineer · B.Eng. Information & Communication Engineering',
+      th: 'วิศวกรข้อมูล · วศ.บ.วิศวกรรมสารสนเทศและการสื่อสาร',
     },
     intro: {
-      en: 'Motivated, detail-oriented graduate from Chulalongkorn University with a strong academic record and a focus on computer programming and data engineering. Proficient in Python, Java, SQL, and data-visualization tools, with hands-on experience in UX/UI design and project management.',
-      th: 'วิศวกรรมบัณฑิตเกียรตินิยมอันดับหนึ่งจากจุฬาลงกรณ์มหาวิทยาลัย ที่มีความสนใจในการเขียนโปรแกรมและวิศวกรรมข้อมูล (Data Engineering) และมีความเชี่ยวชาญด้าน Python, Java, SQL และเครื่องมือ Data Visualization พร้อมประสบการณ์ตรงด้านการออกแบบ UX/UI และการบริหารโครงการ (PM)',
+      en: 'Motivated and detail-oriented data engineer with a strong academic record. Focused on building reliable data pipelines and applying programming to real-world data problems. Proficient in Python, Java, SQL, and a range of data visualization tools, with hands-on experience in UX/UI design and project management.',
+      th: 'วิศวกรข้อมูลที่มีความมุ่งมั่นและใส่ใจในรายละเอียด พร้อมผลการเรียนที่โดดเด่น มุ่งเน้นการสร้าง Data Pipeline ที่เชื่อถือได้ และการประยุกต์ใช้การเขียนโปรแกรมเพื่อแก้ปัญหาข้อมูลในโลกจริง มีความเชี่ยวชาญด้าน Python, Java, SQL และเครื่องมือ Data Visualization ที่หลากหลาย พร้อมประสบการณ์ตรงด้านการออกแบบ UX/UI และการบริหารโครงการ (PM)',
     },
     emailLabel: { en: 'email', th: 'อีเมล' },
     viewExperience: { en: 'View experience', th: 'ดูประสบการณ์' },
@@ -219,6 +219,20 @@ export const heroStats: HeroStat[] = [
 
 export const experience: ExperienceItem[] = [
   {
+    id: 'exp0',
+    dateMain: '2026–NOW',
+    dateSub: null,
+    title: { en: 'Data Engineer', th: 'วิศวกรข้อมูล' },
+    org: {
+      en: 'Big Data Institute (Public Organization) · Travel Link',
+      th: 'สถาบันข้อมูลขนาดใหญ่ (องค์การมหาชน) · ทราเวลลิงค์ (Travel Link)',
+    },
+    tag: { en: 'FULL-TIME', th: 'FULL-TIME' },
+    accent: true,
+    defaultOpen: true,
+    bullets: [],
+  },
+  {
     id: 'exp1',
     dateMain: 'JUN–JUL',
     dateSub: '2025',
@@ -228,7 +242,7 @@ export const experience: ExperienceItem[] = [
       th: 'บริษัท แอดวานซ์ อินโฟร์ เซอร์วิส จำกัด (มหาชน) (AIS) · แผนกควบคุมคุณภาพเครือข่าย (NQM)',
     },
     tag: { en: 'INTERNSHIP', th: 'INTERNSHIP' },
-    accent: true,
+    accent: false,
     defaultOpen: true,
     link: '/MD4_Redacted.pdf',
     certLink: 'https://www.credly.com/badges/8f1d7b02-6608-4bcf-8811-767e766386ef/',

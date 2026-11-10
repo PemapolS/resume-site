@@ -54,11 +54,11 @@ export default function Experience() {
                         </span>
                       </div>
                       <div className="flex flex-wrap items-center gap-4">
-                        <DetailsToggle open={open} />
+                        {item.bullets.length > 0 && <DetailsToggle open={open} />}
                         {item.link && <CardLink href={item.link} icon={faFilePdf} label="Report" />}
                         {item.certLink && <CardLink href={item.certLink} icon={faAward} label="Certification" />}
                       </div>
-                      {open && (
+                      {open && item.bullets.length > 0 && (
                         <ul className="mt-1.5 mb-1 list-disc space-y-1.5 pl-4.5 text-[14.5px] leading-[1.7] text-ink-2 marker:text-ink-3">
                           {item.bullets.map((b, i) => (
                             <li key={i}>{pick(b, en)}</li>
